@@ -17,14 +17,15 @@ def generador_grafo(nodos):
 
 
     for i in instancia:
-        valida = 0
-        JJ = -1
+        valida = 0    
         for j in instancia[i]:
-            JJ = JJ + 1
             for x in instancia:
-                if x != i:
-                    if i == instancia[x][JJ][0]:
-                        valida = 1
+                JJ = -1
+                for y in instancia[x]:
+                    JJ = JJ + 1
+                    if x != i:
+                        if i == instancia[x][JJ][0]:
+                            valida = 1
         if valida == 0:
             insertar  = str(random.randint(1, nodos))
             tupla_insertada = (i, random.randint(1,1000))
@@ -35,14 +36,17 @@ def generador_grafo(nodos):
     return instancia
 
 
-    
+inicial  = str(random.randint(1, 50))
+final  = str(random.randint(1, 50))
+while inicial == final:
+    inicial  = str(random.randint(1, 50))
+    final  = str(random.randint(1, 50))
 
-
-grafo = generador_grafo(5)
+grafo = generador_grafo(50)
 
 print(grafo)
 g = GRP.WeightedGraph(grafo)
 
 
-path, weight = g.shortestPath('1','4')
+path, weight = g.shortestPath(inicial,final)
 print(f'Dijkstra: ruta D-G:{path} peso:{weight}')
