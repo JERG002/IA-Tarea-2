@@ -36,20 +36,20 @@ def generador_grafo(nodos):
 
     return instancia
 
-grafo = generador_grafo(2)
+CantidadNodos = 10 
+
+inicial  = str(random.randint(1, CantidadNodos))
+final  = str(random.randint(1, CantidadNodos))
+while inicial == final:
+    inicial  = str(random.randint(1, CantidadNodos))
+    final  = str(random.randint(1, CantidadNodos))
+
+grafo = generador_grafo(CantidadNodos)
 G= nx.complete_graph(grafo)
 nx.draw_circular(G, node_size= len(grafo), width=1, width_label=False)
 plt.axes("equals")
 plt.show()
 
-inicial  = str(random.randint(1, 2))
-final  = str(random.randint(1, 2))
-while inicial == final:
-    inicial  = str(random.randint(1, 2))
-    final  = str(random.randint(1, 2))
-
-
-print(grafo)
 g = GRP.WeightedGraph(grafo)
 
 
