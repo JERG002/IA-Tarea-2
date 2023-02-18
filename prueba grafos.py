@@ -1,7 +1,11 @@
 import random
+import time
 import grafo_ponderado as GRP
 import networkx as nx
 import matplotlib.pyplot as plt
+
+inicio = time.time()
+
 def generador_grafo(nodos):
     instancia = {}
     for i in range(1,nodos+1):
@@ -55,3 +59,7 @@ g = GRP.WeightedGraph(grafo)
 
 path, weight = g.shortestPath(inicial,final)
 print(f'Dijkstra: ruta D-G:{path} peso:{weight}')
+
+fin = time.time()
+
+print('Tiempo de ejecucion: ', fin-inicio)
