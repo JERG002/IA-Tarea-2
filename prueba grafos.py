@@ -38,7 +38,7 @@ def generador_grafo(nodos):
 
 grafo = generador_grafo(2)
 G= nx.complete_graph(grafo)
-nx.draw_circular(G, node_size= 2, width=1, width_label=False)
+nx.draw_circular(G, node_size= len(grafo), width=1, width_label=False)
 plt.axes("equals")
 plt.show()
 
