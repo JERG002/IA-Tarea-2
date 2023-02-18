@@ -1,6 +1,7 @@
 import random
 import grafo_ponderado as GRP
-
+import networkx as nx
+import matplotlib.pyplot as plt
 def generador_grafo(nodos):
     instancia = {}
     for i in range(1,nodos+1):
@@ -35,14 +36,18 @@ def generador_grafo(nodos):
 
     return instancia
 
+grafo = generador_grafo(2)
+G= nx.complete_graph(grafo)
+nx.draw_circular(G, node_size= 2, width=1, width_label=False)
+plt.axes("equals")
+plt.show()
 
-inicial  = str(random.randint(1, 50))
-final  = str(random.randint(1, 50))
+inicial  = str(random.randint(1, 2))
+final  = str(random.randint(1, 2))
 while inicial == final:
-    inicial  = str(random.randint(1, 50))
-    final  = str(random.randint(1, 50))
+    inicial  = str(random.randint(1, 2))
+    final  = str(random.randint(1, 2))
 
-grafo = generador_grafo(50)
 
 print(grafo)
 g = GRP.WeightedGraph(grafo)
